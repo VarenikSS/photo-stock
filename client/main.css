@@ -1,0 +1,16 @@
+
+body{
+  padding-top: 60px;
+}
+.image-block {
+  border: 1px solid grey;
+  height: 450px;
+  margin-top:20px;
+}
+.aim {
+  margin:0 auto;
+  max-height: 300px;
+ 
+
+}
+/* CSS declarations go here */

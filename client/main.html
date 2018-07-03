@@ -1,0 +1,76 @@
+<head>
+  <title>awesome</title>
+</head>
+
+
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Image app</h1>
+      <h2>{{username}}</h2>
+    </header>
+    <div class="row">
+      
+        <nav class="navbar navbar-default navbar-fixed-top">
+          <div class="container">
+            {{> loginButtons}}
+          </div>
+        </nav>
+      {{#if currentUser}}
+      <div class="col-md-12 col-xs-12">
+         {{> add_img}}
+      </div>
+     {{/if}}
+      {{> img}}
+    </div>
+  </div>
+</body>
+<template name="add_img">
+   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add image</h4>
+        </div>
+        <div class="modal-body">
+          <form class="add_img_form">
+            <input type="text" name="src_img"><br/>
+            <input type="text" name="src_alt">
+            <button class="btn btn-success">save</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</template>
+<template name="img">
+  {{#each lists}}
+    <div class="col-md-3 col-xs-12">
+      <div class="image-block" id={{_id}} >
+        <img class="img-responsive aim" src={{src_}} alt=""/>
+        <div>
+          <p>{{rating_img}}</p>
+          <p>{{> starsRating class='rating-js' mutable=true id=_id}}</p>
+          <p class=text-center>{{img_alt}}</p>
+          <p class=text-center>{{img_date}}</p>
+          <p class=text-center>Add by {{getUser createdBy}}</p>
+          <button class="delete-image btn btn-warning">delete</button>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</template>
+
+
